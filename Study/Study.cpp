@@ -124,7 +124,7 @@ void mMatrix::SetData(unsigned char rows, unsigned char column)
 
 int main()
 {
-	mMatrix mat;
+	mMatrix mat;	//矩阵
 	//mat.Generate();
 	mat.SetData(3, 3);
 	mat.Print();
