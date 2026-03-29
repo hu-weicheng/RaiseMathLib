@@ -1,6 +1,6 @@
 
 // 微软已启用AMP改用openMP
-#include <arrayfire.h>
+
 #include <omp.h>
 #include "test.h"
 
@@ -26,8 +26,3 @@ void test_VectorAdd()
     }
 }
 
-int testarrayfire() {
-    af::setDevice(0);
-    af::info();
-    return 0;
-}
