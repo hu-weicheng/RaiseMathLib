@@ -1,4 +1,4 @@
-﻿// Study.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+// Study.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 // 加分题
 // Author：柴锦
 // 
@@ -72,10 +72,10 @@ void mMatrix::Print()
 	cout << "This Matrix Data is as Follows:" << endl;
 	for (int i = 0; i < rows * column; i++)
 	{
-		cout << std::setw(3) << std::left<<(int)pBuf[i] << " ";
+		cout << std::setw(3) << std::left << (int)pBuf[i] << " ";
 		if (i % column + 1 == column)
 			cout << endl;
-	}	
+	}
 }
 
 //序数从1开始而不是从0开始
@@ -88,7 +88,7 @@ int mMatrix::Find1_RowNo()
 	{
 		if (pBuf[i] == 1)
 		{
-			return i/column+1;
+			return i / column + 1;
 		}
 		i += column;
 	}
@@ -102,7 +102,7 @@ vector<unsigned char> mMatrix::Find1()
 	{
 		if (pBuf[i] == 1)
 		{
-			for(int j=i;j<column;j++)
+			for (int j = i; j < column; j++)
 				tmp.push_back(pBuf[j]);
 		}
 		i += column;
@@ -118,11 +118,11 @@ void mMatrix::SetData(unsigned char rows, unsigned char column)
 	for (int i = 0; i < rows * column; i++)
 	{
 		cin >> temp;
-		pBuf[i]=(unsigned char)temp;	//解决输入的过程中进行了隐式转换
+		pBuf[i] = (unsigned char)temp;	//解决输入的过程中进行了隐式转换
 	}
 }
 
-int main()
+int test()
 {
 	mMatrix mat;	//矩阵
 	//mat.Generate();
@@ -133,5 +133,5 @@ int main()
 	{
 		cout << result.at(i) << " ";
 	}
-	cout << "Fond Fist Data Rows Nunber is "<<mat.Find1_RowNo() << endl;
+	cout << "Fond Fist Data Rows Nunber is " << mat.Find1_RowNo() << endl;
 }
