@@ -97,7 +97,8 @@ void mMatrix::SetData(unsigned char rows, unsigned char column)
 	}
 }
 
-int test()
+
+void test()
 {
 	mMatrix mat;	//矩阵
 	//mat.Generate();

@@ -1,10 +1,12 @@
+
+
 #include <iostream>
 #include <math.h>
 #include <iomanip>
 
 using namespace std;
 
-int main()
+int heronformula()
 {
 	double a, b, c, s, p;
 

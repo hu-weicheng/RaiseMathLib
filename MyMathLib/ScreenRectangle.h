@@ -34,3 +34,4 @@ protected:
 	unsigned int height;
 };
 
+void test();

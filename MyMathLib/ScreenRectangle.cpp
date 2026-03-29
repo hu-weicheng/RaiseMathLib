@@ -129,3 +129,11 @@ void ScreenRectangle::CalcByLefttopRightbottom(const int& lefttop_x, const int& 
 	this->center.s_x = lefttop_x + this->width / 2;
 	this->center.s_y = lefttop_x + this->height / 2;
 }
+
+
+void test()
+{
+	std::cout << "Hello World!\n";
+	ScreenRectangle srct(20, 30, 40, 40);
+	srct.PrintSRectData();
+}
