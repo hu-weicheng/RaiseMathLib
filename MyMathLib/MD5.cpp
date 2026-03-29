@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <vector>
 #include <cstring>
 #include <cstdio>
@@ -111,8 +111,7 @@ void process_block(const uint8_t* block, uint32_t& a, uint32_t& b, uint32_t& c, 
     }
 }
 
-string md5(const void* input, size_t nBytes) 
-{
+string md5(const void* input, size_t nBytes) {
     uint32_t a = 0x67452301;
     uint32_t b = 0xEFCDAB89;
     uint32_t c = 0x98BADCFE;
@@ -137,3 +136,8 @@ string md5(const void* input, size_t nBytes)
     return string(hex);
 }
 
+int test() {
+    const char* test_str = "hello world";
+    cout << "MD5(\"" << test_str << "\") = " << md5(test_str, strlen(test_str)) << endl;
+    return 0;
+}
