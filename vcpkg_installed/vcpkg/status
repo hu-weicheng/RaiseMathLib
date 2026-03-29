@@ -1,0 +1,9 @@
+Package: vcpkg-tool-lessmsi
+Version: 1.10.0
+Port-Version: 1
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 2a4c27c1d988cf3700bba6e8f94db7b62b0bc4551cf674a27707517be12c4143
+Description: This is a utility with a graphical user interface and a command line interface that can be used to view and extract the contents of an MSI file.
+Status: install ok installed
+
