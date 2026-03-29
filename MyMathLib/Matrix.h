@@ -26,3 +26,4 @@ private:
 	unsigned char* pBuf;
 };
 
+int test();
