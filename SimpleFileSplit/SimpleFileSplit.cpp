@@ -4,16 +4,19 @@
 *错误代码表：
 *0正常 -2无参数 1文件小于50M，不用分割
 *****************************************************************/
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
 
-#include <vld.h>
+//#include <vld.h>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 using namespace std;
+
+
 
 #define Byte50M  52428800
 
@@ -26,7 +29,7 @@ void filesplit(char* filename);
 
 int file_size(char* filename)
 {
-    FILE* fp = fopen(filename, "r");
+    FILE* fp = fopen(filename, "rb");
     if (!fp) return -1;
     fseek(fp, 0L, SEEK_END);
     int size = ftell(fp);

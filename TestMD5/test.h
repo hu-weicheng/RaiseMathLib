@@ -12,3 +12,5 @@ string md5(const void* input, size_t nBytes);
 void test_VectorAdd();
 
 int testFFT();
+
+//void test_opencv();

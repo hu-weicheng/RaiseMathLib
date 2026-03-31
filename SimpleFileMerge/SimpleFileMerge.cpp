@@ -4,18 +4,21 @@
 *错误代码表：
 *0正常 -2无参数 -3文件大于50M，不用合并 -1子文件路径不对或不存在
 *****************************************************************/
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <io.h>
 
-#include <vld.h>
+//#include <vld.h>
 #include <iostream>
 #include <vector>
 #include <string>
 #include <sstream>
 #include <fstream>
 using namespace std;
+
+
 
 #define Byte50M  52428800
 

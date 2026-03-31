@@ -1,4 +1,3 @@
-
 // 微软已启用AMP改用openMP
 
 #include <omp.h>
@@ -25,4 +24,6 @@ void test_VectorAdd()
         cout << c[i] << endl;
     }
 }
+
+
 
