@@ -19,7 +19,4 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <Library Include="opencv_world455.lib" />
-  </ItemGroup>
 </Project>

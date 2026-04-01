@@ -1,28 +1,45 @@
-//#pragma execution_character_set("utf-8")
-
-#include <windows.h>
+#include <direct.h>
+#include <stdio.h>
+#include <Windows.h>
 #include <iostream>
-//#include <opencv4/opencv2/core.hpp>
-#include <opencv4/opencv2/core/version.hpp>
-//#include <opencv4/opencv2/core/utility.hpp>
+#include <string>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui.hpp>
 
+using namespace cv;
 using namespace std;
 
-//项目--属性--C/C++ ---命令行--附加选项：/utf-8
-int main() 
+//debug下在lib文件的名称后加d，release下不加d。
+
+
+
+
+int main()
 {
-    //SetConsoleOutputCP(CP_UTF8);  // 设置控制台输出为 UTF-8
-	//system("chcp 65001"); // 设置控制台输出为 UTF-8
-	system("chcp 936"); // 设置控制台输出为 UTF-8
-	std::wcout.imbue(std::locale("chs")); // 设置 wcout 使用系统默认的区域设置
-    std::wcout << L"OpenCV 主版本: " << CV_MAJOR_VERSION << std::endl;
-    std::wcout << "OpenCV 次版本: " << CV_MINOR_VERSION << std::endl;
-    std::wcout << "OpenCV 补丁版本: " << CV_SUBMINOR_VERSION << std::endl;
+	system("chcp 65001");
+	//setlocale(LC_ALL, ""); // ✅ 辅助解决本地化字符问题
 
-	wstring s;
-	wcin.imbue(std::locale("chs")); // 设置 wcin 使用系统默认的区域设置
-	wcin >> s;
-	wcout << L"你输入的字符串是: " << s << std::endl;
+	// 打印当前工作目录
+	char buffer[256];
+	_getcwd(buffer, 256);
+	std::cout << "当前工作目录: " << buffer << std::endl;
 
+	string file = "test.jpg";
+	// 打印 OpenCV 构建信息
+	//std::cout << cv::getBuildInformation() << std::endl;
+
+	Mat img = imread(file);//
+
+	if (img.empty())
+	{
+		std::cout << "image read is null" << std::endl;
+		return -10;
+	}
+
+
+	/*namedWindow("【原图】", WINDOW_AUTOSIZE);*/
+	imshow("【原图】", img);
+
+	waitKey(0);
 	return 0;
 }
