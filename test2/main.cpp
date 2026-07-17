@@ -1,6 +1,7 @@
 #include <direct.h>
 #include <stdio.h>
 #include <Windows.h>
+#include <filesystem>
 #include <iostream>
 #include <string>
 #include <opencv2/opencv.hpp>
@@ -16,19 +17,26 @@ using namespace std;
 
 int main()
 {
-	system("chcp 65001");
+	//system("chcp 65001");
 	//setlocale(LC_ALL, ""); // ✅ 辅助解决本地化字符问题
 
 	// 打印当前工作目录
-	char buffer[256];
-	_getcwd(buffer, 256);
-	std::cout << "当前工作目录: " << buffer << std::endl;
+	//char buffer[256];
+	//_getcwd(buffer, 256);
+	//std::cout << "当前工作目录: " << buffer << std::endl;
 
-	string file = "test.jpg";
+	//std::cout << "当前工作目录: " << std::filesystem::current_path() << std::endl;
+
+	string file = "C:/Users/Rise8/source/repos/RaiseMathLib/test2/test.jpg";
+	cout << std::filesystem::exists(file) << endl;
 	// 打印 OpenCV 构建信息
 	//std::cout << cv::getBuildInformation() << std::endl;
 
-	Mat img = imread(file);//
+	cv::String filename = "C:/Users/Rise8/source/repos/RaiseMathLib/test2/test.jpg";
+	//Mat img = imread(file);//
+	//Mat img = imread("test.jpg");
+	//
+	Mat img = imread(filename);
 
 	if (img.empty())
 	{
@@ -36,9 +44,13 @@ int main()
 		return -10;
 	}
 
+	Mat small;
+	resize(img, small, Size(640, 480));  // ✅ 缩放到指定尺寸
 
-	/*namedWindow("【原图】", WINDOW_AUTOSIZE);*/
-	imshow("【原图】", img);
+	namedWindow("test", WINDOW_AUTOSIZE);
+	resizeWindow("test", 640, 480);      // ✅ 指定窗口大小（宽 × 高）
+	//imshow("【原图】", img);
+	imshow("test", small);
 
 	waitKey(0);
 	return 0;
