@@ -17,6 +17,7 @@ using namespace std;
 
 int main()
 {
+#pragma execution_character_set("utf-8")
 	//system("chcp 65001");
 	//setlocale(LC_ALL, ""); // ✅ 辅助解决本地化字符问题
 

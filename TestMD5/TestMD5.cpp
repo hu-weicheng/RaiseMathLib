@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
 #include <vector>
 #include <cstring>
 #include <cstdio>
@@ -101,11 +103,12 @@ void process_block(const uint8_t* block, uint32_t& a, uint32_t& b, uint32_t& c, 
             int s = param_indices[round][step];
             int m_index = m_indices[round][step];
             uint32_t x = M[m_index];
-            switch (round) {
-            case 0: FF(a, b, c, d, x, s, T[step]); break;
-            case 1: GG(d, a, b, c, x, s, T[16 + step]); break;
-            case 2: HH(c, d, a, b, x, s, T[32 + step]); break;
-            case 3: II(b, c, d, a, x, s, T[48 + step]); break;
+            switch (round) 
+            {
+                case 0: FF(a, b, c, d, x, s, T[step]); break;
+                case 1: GG(d, a, b, c, x, s, T[16 + step]); break;
+                case 2: HH(c, d, a, b, x, s, T[32 + step]); break;
+                case 3: II(b, c, d, a, x, s, T[48 + step]); break;
             }
         }
     }
@@ -131,8 +134,10 @@ string md5(const void* input, size_t nBytes)
     memcpy(digest + 12, &d, 4);
 
     char hex[33];
-    for (int i = 0; i < 16; ++i) {
-        sprintf(hex + i * 2, "%02x", digest[i]);
+
+    for (int i = 0; i < 16; ++i) 
+    {
+        sprintf(hex + i * 2, "%02x", digest[i]);//'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
     }
     return string(hex);
 }

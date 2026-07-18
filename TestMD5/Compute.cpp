@@ -21,7 +21,7 @@ void test_VectorAdd()
     VectorAdd(a, b, c, 4);
     for (int i = 0; i < 4; i++)
     {
-        cout << c[i] << endl;
+        cout << c[i] << " = " <<a[i] << " + " <<b[i]<< endl;
     }
 }
 
