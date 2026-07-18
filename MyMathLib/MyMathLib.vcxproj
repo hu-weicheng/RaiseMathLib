@@ -147,6 +147,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="ScreenRectangle.cpp" />
     <ClCompile Include="Square.cpp" />
+    <ClCompile Include="TestStructOverLoadFun.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
