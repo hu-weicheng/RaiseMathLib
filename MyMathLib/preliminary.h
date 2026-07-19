@@ -1,13 +1,13 @@
 #pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <vector>
-#include <cstring>
+#include <string>
 #include <array>
+#include <cmath>
 #include <algorithm>
+#include <span>//C++20
 
-#include <cstdio>
-#include <iostream>	//以后逐渐剥离IO逻辑
-#include <iomanip>
+
 using namespace std;
 
 /**************************************************************************************
@@ -18,24 +18,26 @@ using namespace std;
 namespace Rmath
 {
 	//TestBench
-	void test_mMatrix();//test mMatrix
-	void test_sPos();//sPos	//screen position
-	int test_MD5();
+
+
+
 	//接口函数
-	int heronformula();//海伦公式
+	
 	string md5(const void* input, size_t nBytes);
+
 	/*******Point******************************************************************/
 	//Point类是所有图形类的基类
 	class Point
 	{
 	public:
 		Point();
+		Point(int x, int y);
 		Point(Point& p);
 		Point(const int& xp, const int& yp);
-
+		Point& MoveX(int stepx);
+		Point& MoveY(int stepy);
 		int& GetX();
 		int& GetY();
-		void PrintPos();
 		Point& GetPointPos();
 		void SetPointValue(int& x, int& y);
 		void Zero();
@@ -64,17 +66,15 @@ namespace Rmath
 	#define Pi_13	3.1415926535897
 	#define Pi_14	3.14159265358979
 
-	class Circle :Point
+	class Circle :public Point
 	{
 	public:
 		Circle();
 		Circle(const int& x, const int& y, const unsigned int radius);
 		Circle(const Circle& c);
 		Circle(int& x_t, int& y_t, unsigned int r);
-
+;
 		Circle& Copy();
-
-		void print();
 		bool IsOnCircle(const int& x, const int& y);
 		bool operator==(Circle& c);
 		void SetRadius(unsigned int r);
@@ -109,8 +109,7 @@ namespace Rmath
 		unsigned int& GetSX();
 		unsigned int& GetSY();
 		RGBQUAD& GetRGB();	//RGBQUAD&
-		void PrintScreenPos();
-		void PrintRGB();
+
 
 	protected:
 		unsigned int s_x;
@@ -185,9 +184,12 @@ namespace Rmath
 	public:
 		mMatrix();
 		mMatrix(unsigned char rows, unsigned char column);
-		void SetData(unsigned char rows, unsigned char column);
+		mMatrix(unsigned char rows, unsigned char column, vector<unsigned char> data);
+		bool setElement(int index, int value);
 		void Generate();
-		void Print();
+		uint16_t& GetRows();
+		uint16_t& GetColumns();
+		std::span<unsigned char> GetData();
 		vector<unsigned char> Find1();
 		int Find1_RowNo();
 		~mMatrix();
@@ -217,10 +219,16 @@ namespace Rmath
 			const unsigned int& width, const unsigned int& height);
 
 		sPos& GetMidPos();
+		sPos& GetLeftTop();
+		sPos& GetLeftBottom();
+		sPos& GetRightTop();
+		sPos& GetRightBootom();
+		unsigned int& GetWidth();
+		unsigned int& GetHeight();
 		void SetLefttop(const int& lefttop_x, const int& lefttop_y);
 		void SetCenter(const int& mid_x, const int& mid_y, const int& width, const int& height);
 		void SetSRectWidHgt(const int& width, const int& height);
-		void PrintSRectData();
+
 		void CalcDataByLefttop();
 		void CalcDataByMidPos();
 		void CalcByLefttopRightbottom(const int& lefttop_x, const int& lefttop_y,

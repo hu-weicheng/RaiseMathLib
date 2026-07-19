@@ -11,7 +11,11 @@ namespace Rmath
 		x = 0;
 		y = 0;
 	}
-
+	Point::Point(int x, int y)
+	{
+		this->x = x;
+		this->y = y;
+	}
 
 	int& Point::GetX()
 	{
@@ -55,16 +59,24 @@ namespace Rmath
 		y_t = y;
 	}
 
-	void Point::PrintPos()
-	{
-		cout << "X:" << x << endl;
-		cout << "Y:" << y << endl;
-	}
+
 
 	Point& Point::GetPointPos()
 	{
 		return *this;
 	}
+	Point& Point::MoveX(int stepx)
+	{
+		x += stepx;
+		return *this;
+	}
+
+	Point& Point::MoveY(int stepy)
+	{
+		y += stepy;
+		return *this;
+	}
+
 	/*******Point******************************************************************/
 
 
@@ -98,11 +110,7 @@ namespace Rmath
 	{
 		return *this;
 	}
-	void Circle::print()
-	{
-		this->print();
-		cout << "Radius:" << radius << endl;
-	}
+
 
 	bool Circle::IsOnCircle(const int& x_t, const int& y_t)
 	{
@@ -188,15 +196,7 @@ namespace Rmath
 		return rgb;
 	}
 
-	void Pixel::PrintScreenPos()
-	{
-		cout << "s_x:" << s_x << "  s_y:" << s_y << endl;
-	}
 
-	void Pixel::PrintRGB()
-	{
-		cout << "Red:" << rgb.rgbRed << " Green:" << rgb.rgbGreen << " Blue:" << rgb.rgbBlue << endl;
-	}
 	/*******Pixel******************************************************************/
 
 	/*******Square******************************************************************/
@@ -235,25 +235,7 @@ namespace Rmath
 	}
 	/*******Square******************************************************************/
 
-	//海伦公式
-	int heronformula()
-	{
-		double a, b, c, s, p;//a,b,c为三角形的三条边，p为半周长，s为面积
 
-		cin >> a >> b >> c;
-
-		p = (a + b + c) / 2;
-
-		s = sqrt(p * (p - a) * (p - b) * (p - c));
-
-		cout.setf(ios::fixed);
-
-		cout.precision(3);
-
-		cout << s << endl;
-
-		return 0;
-	}
 
 	/******Coordinates***********************************************************/
 	
@@ -403,12 +385,21 @@ namespace Rmath
 	// 加分题
 	// Author：柴锦
 	// 
-	//
 	mMatrix::mMatrix(unsigned char rows, unsigned char column)
 	{
 		this->rows = rows;
 		this->column = column;
 		pBuf = new unsigned char[rows * column];
+	}
+	mMatrix::mMatrix(unsigned char rows, unsigned char column, vector<unsigned char> data)
+	{
+		this->rows = rows;
+		this->column = column;
+		pBuf = new unsigned char[rows * column];
+		for (int i = 0;i < data.size();i++)
+		{
+			pBuf[i] = data[i];
+		}
 	}
 
 	mMatrix::mMatrix()
@@ -440,17 +431,19 @@ namespace Rmath
 			pBuf[i] = rand() % 255;
 		}
 	}
-	void mMatrix::Print()
+	uint16_t& mMatrix::GetRows()
 	{
-		cout << "This Matrix Data is as Follows:" << endl;
-		for (int i = 0; i < rows * column; i++)
-		{
-			cout << std::setw(3) << std::left << (int)pBuf[i] << " ";
-			if (i % column + 1 == column)
-				cout << endl;
-		}
+		return this->rows;
 	}
-
+	uint16_t& mMatrix::GetColumns()
+	{
+		return this->column;
+	}
+	std::span<unsigned char> GetData()
+	{
+		static unsigned char buffer[128];
+		return buffer; // 生命周期由调用者负责
+	}
 	//序数从1开始而不是从0开始
 	//没有返回0
 	//返回的是第一个满足条件的行号
@@ -482,33 +475,19 @@ namespace Rmath
 		}
 		return tmp;
 	}
-
-	void mMatrix::SetData(unsigned char rows, unsigned char column)
+	bool mMatrix::setElement(int index, int value)
 	{
-		initBuffer(rows, column);
-		cout << "Please Input Matrix Data:" << "\n";
-		int temp = 0;
-		for (int i = 0; i < rows * column; i++)
-		{
-			cin >> temp;
-			pBuf[i] = (unsigned char)temp;	//解决输入的过程中进行了隐式转换
-		}
+		if (index < 0 || index >= sizeof(this->pBuf))//static_cast<int>(data_.size())
+			return false;
+
+		if (value < 0 || value > 255)
+			return false;
+
+		this->pBuf[static_cast<size_t>(index)] = static_cast<unsigned char>(value);
+		return true;
 	}
+
 	
-
-	void test_mMatrix()
-	{
-		mMatrix mat;	//矩阵
-		//mat.Generate();
-		mat.SetData(3, 3);
-		mat.Print();
-		auto result = mat.Find1();
-		for (int i = 0; i < result.size(); i++)
-		{
-			cout << result.at(i) << " ";
-		}
-		cout << "Fond Fist Data Rows Nunber is " << mat.Find1_RowNo() << endl;
-	}
 	/******mMatrix***********************************************************/
 
 
@@ -618,7 +597,8 @@ namespace Rmath
 		}
 	}
 
-	string md5(const void* input, size_t nBytes) {
+	string md5(const void* input, size_t nBytes) 
+	{
 		uint32_t a = 0x67452301;
 		uint32_t b = 0xEFCDAB89;
 		uint32_t c = 0x98BADCFE;
@@ -643,11 +623,7 @@ namespace Rmath
 		return string(hex);
 	}
 
-	int test_MD5() {
-		const char* test_str = "hello world";
-		cout << "MD5(\"" << test_str << "\") = " << md5(test_str, strlen(test_str)) << endl;
-		return 0;
-	}
+
 	/******MD5***********************************************************/
 
 
@@ -701,7 +677,30 @@ namespace Rmath
 		// TODO: 在此处插入 return 语句
 		return this->center;
 	}
-
+	sPos& ScreenRectangle::GetLeftTop()
+	{
+		return this->lefttop;
+	}
+	sPos& ScreenRectangle::GetLeftBottom()
+	{
+		return this->leftbottom;
+	}
+	sPos& ScreenRectangle::GetRightTop()
+	{
+		return this->righttop;
+	}
+	sPos& ScreenRectangle::GetRightBootom()
+	{
+		return this->rightbottom;
+	}
+	unsigned int& ScreenRectangle::GetWidth()
+	{
+		return this->width;
+	}
+	unsigned int& ScreenRectangle::GetHeight()
+	{
+		return this->height;
+	}
 	void ScreenRectangle::SetLefttop(const int& lefttop_x, const int& lefttop_y)
 	{
 		this->lefttop.s_x = lefttop_x;
@@ -730,15 +729,7 @@ namespace Rmath
 		this->height = height;
 	}
 
-	void ScreenRectangle::PrintSRectData()
-	{
-		cout << "lefttop_x:" << lefttop.s_x << " lefttop_y:" << lefttop.s_y << endl;
-		cout << "leftbottom_x:" << leftbottom.s_x << " leftbottom_y:" << leftbottom.s_y << endl;
-		cout << "righttop_x:" << righttop.s_x << " righttop_y:" << righttop.s_y << endl;
-		cout << "rightbottom_x:" << rightbottom.s_x << " rightbottom_y:" << rightbottom.s_y << endl;
-		cout << "center_x:" << center.s_x << " center.s_y:" << center.s_y << endl;
-		cout << "sRct_width:" << width << " sRct_height:" << height << endl;
-	}
+
 
 	void ScreenRectangle::CalcDataByLefttop()
 	{
@@ -783,12 +774,7 @@ namespace Rmath
 	}
 
 
-	void test_sPos()
-	{
-		std::cout << "Hello World!\n";
-		ScreenRectangle srct(20, 30, 40, 40);
-		srct.PrintSRectData();
-	}
+
 
 	/******ScreenRectangle***********************************************************/
 
