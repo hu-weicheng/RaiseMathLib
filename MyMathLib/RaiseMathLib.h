@@ -6,11 +6,6 @@
 ********************************************************************/
 
 
-//#include"Point.h"
-//#include"Pixel.h"
-//#include"Coordinates.h"
-//#include"Square.h"
-//#include"ScreenRectangle.h"
-//#include"Circle.h"
+
 #include "preliminary.h"
 #include "signal.h"

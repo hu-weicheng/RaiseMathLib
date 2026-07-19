@@ -131,6 +131,8 @@
     <ClInclude Include="periodicity.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Compute.cpp" />
+    <ClCompile Include="FFT.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mathlimit.cpp" />
     <ClCompile Include="periodicity.cpp" />

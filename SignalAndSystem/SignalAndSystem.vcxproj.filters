@@ -32,5 +32,11 @@
     <ClCompile Include="mathlimit.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Compute.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FFT.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
