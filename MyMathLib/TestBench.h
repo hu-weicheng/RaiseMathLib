@@ -9,4 +9,3 @@
 #include<iostream>
 using namespace std;
 
-string md5(const void* input, size_t nBytes);

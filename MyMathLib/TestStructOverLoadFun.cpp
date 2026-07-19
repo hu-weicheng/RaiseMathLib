@@ -7,37 +7,8 @@
 
 using namespace std;
 
-struct complexFreq
-{
-    int r;  //电阻
-    int w;  //角频率
-    // 构造函数
-    //complexFreq(int resistance, int omega) : r(resistance), w(omega) {}
-private:
-    int inline mod();    //模
-public:
-    void print();
-    void print(const string format);
-};
 
-int complexFreq::mod()
-{
-    return sqrt(pow(r, 2) * pow(w, 2));
-}
 
-void complexFreq::print()
-{
-    cout << "Z=" << r << " + j" << w << endl;
-}
-
-void complexFreq::print(const string format)
-{
-    if (format == string("all"))
-    {
-        cout << "Z=" << r << " + j" << w << endl;
-        cout << "|Z|=" << mod() << endl;
-    }
-}
 
 int main()
 {

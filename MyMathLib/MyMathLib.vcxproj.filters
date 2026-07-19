@@ -15,66 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Point.cpp">
+    <ClCompile Include="primilinary.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Pixel.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Coordinates.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Square.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ScreenRectangle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Circle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Triangle.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="MD5.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="TestStructOverLoadFun.cpp">
+    <ClCompile Include="signal.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Point.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="TestBench.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="RaiseMathLib.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Pixel.h">
+    <ClInclude Include="preliminary.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Coordinates.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Square.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenRectangle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Circle.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Triangle.h">
+    <ClInclude Include="signal.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

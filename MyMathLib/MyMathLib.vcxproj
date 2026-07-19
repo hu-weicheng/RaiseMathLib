@@ -139,28 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="Coordinates.cpp" />
-    <ClCompile Include="Matrix.cpp" />
-    <ClCompile Include="MD5.cpp" />
-    <ClCompile Include="Pixel.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="ScreenRectangle.cpp" />
-    <ClCompile Include="Square.cpp" />
-    <ClCompile Include="TestStructOverLoadFun.cpp" />
-    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="primilinary.cpp" />
+    <ClCompile Include="signal.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Circle.h" />
-    <ClInclude Include="Coordinates.h" />
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Matrix.h" />
-    <ClInclude Include="Pixel.h" />
-    <ClInclude Include="Point.h" />
+    <ClInclude Include="TestBench.h" />
+    <ClInclude Include="preliminary.h" />
     <ClInclude Include="RaiseMathLib.h" />
-    <ClInclude Include="ScreenRectangle.h" />
-    <ClInclude Include="Square.h" />
-    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="signal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
