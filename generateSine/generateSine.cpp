@@ -81,18 +81,22 @@ int main()
     //y[n] = ∑_{ k = -∞ }^ {∞} x[k]·h[n - k]
     auto y = convolve(sine, impulse);
 
-    //for (const double& v : sine)
-    //{
-    //    std::cout << v << std::endl;
-    //}
+    std::cout << "打印正弦型号离散序列" << std::endl;
+    for (const double& v : sine)
+    {
+        std::cout << v << std::endl;
+    }
+    std::cout << "_________________" << std::endl;
     //for (const double& v : impulse)
     //{
     //    std::cout << v << std::endl;
     //}
+    std::cout << "打印卷积结果" << std::endl;
     for (const double& v : y)
     {
         std::cout << v << std::endl;
     }
+    std::cout << "---------------------------" << std::endl;
 
     // 初始化窗口（加宽，因为卷积结果更长）
     initgraph(1200, 600);
