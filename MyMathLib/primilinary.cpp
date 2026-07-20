@@ -140,13 +140,13 @@ namespace Rmath
 	unsigned int Circle::SidesLeghth()
 	{
 		// TODO: 在此处插入 return 语句
-		return static_cast<unsigned int>(radius * 2 * Pi_0);
+		return static_cast<unsigned int>(radius * 2 * std::numbers::pi);//std::numbers::pi 来自 #include<numbers>
 	}
 
 	unsigned int Circle::Area()
 	{
 		// TODO: 在此处插入 return 语句
-		return static_cast<unsigned int>(Pi_14 * radius * radius);
+		return static_cast<unsigned int>(std::numbers::pi * radius * radius);
 	}
 
 	unsigned int Circle::Diameter()
