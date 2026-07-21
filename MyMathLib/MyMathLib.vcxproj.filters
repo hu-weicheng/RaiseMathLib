@@ -24,6 +24,12 @@
     <ClCompile Include="Test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleFileMerge.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleFileSplit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestBench.h">
@@ -36,6 +42,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="signal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FileSplitMerge.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

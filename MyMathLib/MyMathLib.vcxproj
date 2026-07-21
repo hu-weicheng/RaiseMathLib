@@ -143,9 +143,12 @@
   <ItemGroup>
     <ClCompile Include="primilinary.cpp" />
     <ClCompile Include="signal.cpp" />
+    <ClCompile Include="SimpleFileMerge.cpp" />
+    <ClCompile Include="SimpleFileSplit.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileSplitMerge.h" />
     <ClInclude Include="TestBench.h" />
     <ClInclude Include="preliminary.h" />
     <ClInclude Include="RaiseMathLib.h" />

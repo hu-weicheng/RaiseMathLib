@@ -7,7 +7,7 @@
 
 
 #include <cstdio>
-#include <iostream>	//以后逐渐剥离IO逻辑
+#include <iostream>	//计算与IO分离
 #include <iomanip>
 
 #include "RaiseMathLib.h"
