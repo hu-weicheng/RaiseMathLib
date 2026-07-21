@@ -1,25 +1,26 @@
 #pragma once
 #include <cstring>
 #include <cmath>
+#include <vector>
 
-#include <iostream>
-using namespace std;
 
 namespace Rmath
 {
-    int test_complexFrq();
-
-    //复频率
-    struct complexFreq
+    //复频率 //s=σ+jω
+    class complexfreq
     {
-        int r;  //电阻
-        int w;  //角频率
+    public:
+        double mod();    //模
+        double getreal();
+        double getimag();
+
+
         // 构造函数
         //complexFreq(int resistance, int omega) : r(resistance), w(omega) {}
-    private:
-        int inline mod();    //模
-    public:
-        void print();
-        void print(const string format);
+    protected:
+        double sigma;   //实部
+        double omega;   //虚部
     };
+
+
 }

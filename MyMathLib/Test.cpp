@@ -103,3 +103,11 @@ void test_sPos()
 	ScreenRectangle srct(20, 30, 40, 40);
 	PrintSRectData(srct);
 }
+
+void print_complexFreq(complexfreq& s)
+{
+	cout << "s=" << s.getreal() << " + j" << s.getimag() << endl;
+}
+
+
+
