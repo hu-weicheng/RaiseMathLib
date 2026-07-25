@@ -3,6 +3,7 @@
 #include <cmath>
 #include <vector>
 
+#include <stdexcept>
 
 namespace Rmath
 {
