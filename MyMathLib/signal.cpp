@@ -189,7 +189,7 @@ namespace Rmath
 
         return result;
     }
-    sequence_real sequence_real::interpolate(size_t M) const
+    sequence_real sequence_real::interpolate(size_t M) const    //放大
     {
         size_t new_size = data.size() * M;
         sequence_real result(new_size);
