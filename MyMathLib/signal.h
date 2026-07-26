@@ -60,6 +60,8 @@ namespace Rmath
         double at_n(int n) const;
         std::vector<double> getdata() const;
 
+        sequence_real operator+(const sequence_real& rhs) const;
+        sequence_real operator-(const sequence_real& rhs) const;
         //加法
         std::vector<double> add(std::vector<double>& y) const;
         sequence_real add(sequence_real& y) const;

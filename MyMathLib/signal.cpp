@@ -205,5 +205,29 @@ namespace Rmath
 
         return result;
     }
+    sequence_real sequence_real::operator+(const sequence_real& rhs) const
+    {
+        if (data.size() != rhs.data.size())
+            throw std::invalid_argument("operator+: sequence length mismatch");
+
+        sequence_real result(data.size(), zeroindex);
+
+        for (size_t i = 0; i < data.size(); ++i)
+            result.data[i] = data[i] + rhs.data[i];
+
+        return result;
+    }
+    sequence_real sequence_real::operator-(const sequence_real& rhs) const
+    {
+        if (data.size() != rhs.data.size())
+            throw std::invalid_argument("operator-: sequence length mismatch");
+
+        sequence_real result(data.size(), zeroindex);
+
+        for (size_t i = 0; i < data.size(); ++i)
+            result.data[i] = data[i] - rhs.data[i];
+
+        return result;
+    }
 }
 
